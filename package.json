@@ -1,0 +1,31 @@
+{
+  "name": "@deadvault/dv-env",
+  "version": "0.1.0",
+  "description": "Runtime secret injection CLI for DeadVault",
+  "type": "module",
+  "bin": {
+    "dv-env": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/index.ts",
+    "validate:env": "node scripts/validate-env.mjs --mode=run",
+    "validate:env:issue-token": "node scripts/validate-env.mjs --mode=issue-token",
+    "validate:env:worker": "node scripts/validate-env.mjs --mode=worker",
+    "smoke:agent-broker": "node examples/agent-broker/smoke.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@deadvault/sdk": "^0.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
