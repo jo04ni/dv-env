@@ -1,14 +1,41 @@
 {
   "name": "@deadvault/dv-env",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Runtime secret injection CLI for DeadVault",
+  "license": "MIT",
   "type": "module",
   "bin": {
     "dv-env": "./dist/index.js"
   },
+  "files": [
+    "dist",
+    "README.md",
+    ".env.example"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jo04ni/dv-env.git"
+  },
+  "homepage": "https://deadvault.xyz",
+  "bugs": {
+    "url": "https://github.com/jo04ni/dv-env/issues"
+  },
+  "keywords": [
+    "deadvault",
+    "secrets",
+    "cli",
+    "runtime-env",
+    "agent",
+    "vault",
+    "web3"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev": "tsx src/index.ts",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build",
     "validate:env": "node scripts/validate-env.mjs --mode=run",
     "validate:env:issue-token": "node scripts/validate-env.mjs --mode=issue-token",
     "validate:env:worker": "node scripts/validate-env.mjs --mode=worker",
@@ -20,7 +47,7 @@
     "node": ">=18"
   },
   "dependencies": {
-    "@deadvault/sdk": "^0.1.1"
+    "@deadvault/sdk": "^0.2.1"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
